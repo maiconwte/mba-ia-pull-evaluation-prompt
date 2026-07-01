@@ -122,13 +122,16 @@ maior impacto na sobreposição token-a-token calculada pelo juiz.
 
 ### Evidências no LangSmith
 
-- **Projeto:** `https://smith.langchain.com/projects/prompt-optimization-challenge-resolved`
+- **Prompt no Hub (público):** [`maicors95test1/bug_to_user_story_v2`](https://smith.langchain.com/hub/maicors95test1/bug_to_user_story_v2)
+- **Projeto de tracing:** `prompt-optimization-challenge-resolved`
+  (projetos são privados por padrão no LangSmith — abrir logado como dono em
+  https://smith.langchain.com/o/e180adec-9b6f-47e3-b3f5-94a188b1f9ca/projects/p/06793202-04c9-41e5-87bc-18edeb87c9d3)
 - **Dataset de avaliação:** 15 exemplos (5 simples / 7 médios / 3 complexos) criado
-  automaticamente pelo `evaluate.py` como `{LANGSMITH_PROJECT}-eval`.
-- **Screenshots:** (a serem adicionados no diretório `docs/screenshots/`)
-  - `01-overview.png` — visão geral das execuções
-  - `02-metrics.png` — métricas com notas ≥ 0.8
-  - `03-tracing.png` — tracing detalhado de ao menos 3 exemplos
+  automaticamente pelo `evaluate.py` como `prompt-optimization-challenge-resolved-eval`.
+- **Screenshots** (evidência dos scores, em [`docs/screenshots/`](docs/screenshots)):
+  - [`01-overview.png`](docs/screenshots/01-overview.png) — visão geral do projeto de tracing com todas as execuções (`ChatOpenAI` do gerador + LLM-Judges de F1/Clarity/Precision + `RunnableSequence` da chain principal).
+  - [`02-evaluator-input.png`](docs/screenshots/02-evaluator-input.png) — input de um LLM-Judge de Clareza: prompt do avaliador, bug original, User Story gerada e resposta de referência. Prova que o pipeline de avaliação lê os 3 componentes corretos.
+  - [`03-evaluator-score.png`](docs/screenshots/03-evaluator-score.png) — output JSON do mesmo avaliador, com `{"score": 0.9, "reasoning": "..."}` — evidência direta de score alto e justificativa em português.
 
 ---
 
